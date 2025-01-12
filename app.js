@@ -8,7 +8,7 @@ const bot = new TelegramBot(process.env.TELEGRAM_BOT_TOKEN, { polling: true });
 bot.on('message', async (msg) => {
     const chatId = msg.chat.id;
     const code = msg.text;
-
+    console.log(`Received message: ${code}`);
     // بررسی اینکه کد دریافت شده معتبر باشد
     if (!code || !code.startsWith('```')) {
         return bot.sendMessage(chatId, 'لطفاً کد خود را در قالب مناسب ارسال کنید. مثال:\n```\nfunction test() {}\n```');
